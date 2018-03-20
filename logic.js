@@ -23,14 +23,18 @@ var todoFunctions = {
     });
   },
 
-  addTodo: function(todos, newTodo) {
-var newToDos = todoFunctions.cloneArrayOfObjects(todos);
-newToDos.push({
-       id: generateId(),
-       description: newTodo.description,
-       done: false,
-});
-return newToDos;
+  addTodo: function(todos, newTodo, newDate) {
+  var newToDos = todoFunctions.cloneArrayOfObjects(todos);
+  //check if empty
+  newToDos.push({
+         id: this.generateId(),
+         description: newTodo,
+         date: newDate,
+         done: false,
+  });
+  // console.log(newToDos);
+  return newToDos;
+
   },
 
 
@@ -42,13 +46,17 @@ return newToDos;
   deleteTodo: function(todos, idToDelete) {
     var newToDos = todoFunctions.cloneArrayOfObjects(todos);
 
-for(let i=0; i<=todos.length ; i++)
-{
-if(i===idToDelete)
-{ newToDos.slice(idToDelete,1);}
-}
+    // for(let i=0; i<=newToDos.length ; i++)
+    // {
+    //   if(newToDos[i].id === idToDelete){
+    //     newToDos.splice(i,1);
+    //   }
+    //
+    // }
 
-return newToDos;
+    return newToDos.filter(x=> x.id != idToDelete)
+
+    // return newToDos;
   },
 
 
@@ -70,24 +78,14 @@ return newToDos;
     // hint: array.map
     var newToDos = todoFunctions.cloneArrayOfObjects(todos);
 
- var arr = newToDos.map(function(thisID) {
-   if (thisID.id === idToMark){
-     return thisID.done =! thisID.done;
-   }
- });
-return arr;
+   var arr = newToDos.map(function(item) {
+     if (item.id === idToMark){
+       item.done = !item.done;
+     }
+     return item;
+   });
+  return arr;
   },
-
-
-
-
-
-
-
-
-
-
-
 
 
 
