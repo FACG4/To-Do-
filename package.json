@@ -1,0 +1,23 @@
+{
+  "name": "week2-irms-to-do",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG4/Week2-IRMS-To-Do.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACG4/Week2-IRMS-To-Do/issues"
+  },
+  "homepage": "https://github.com/FACG4/Week2-IRMS-To-Do#readme",
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  }
+}
