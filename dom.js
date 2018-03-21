@@ -25,7 +25,7 @@ var logic = todoFunctions;
     // var description = document.getElementById('description').value;
 
   // This function takes a todo, it returns the DOM node representing that todo
-  var createTodoNode = function(description) {
+  var createTodoNode = function(todo) {
 
     var todoNode = document.createElement('li');
 
@@ -38,14 +38,17 @@ var logic = todoFunctions;
 
     // add span holding description
     var span = document.createElement('span');
-    span.textContent = description.description + '||' + description.date;
+    span.textContent = todo.description + '||' + todo.date;
+    if(todo.done){
+      span.style.textDecoration = 'line-through';
+    }
     todoNode.appendChild(span);
 
 
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
     deleteButtonNode.addEventListener('click', function(event) {
-      var newState = logic.deleteTodo(state, description.id);
+      var newState = logic.deleteTodo(state, todo.id);
       update(newState);
     });
     deleteButtonNode.textContent = 'delete'
@@ -54,6 +57,17 @@ var logic = todoFunctions;
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
+
+    var markButtonNode = document.createElement('button');
+    markButtonNode.textContent = 'mark'
+    markButtonNode.style.color= 'red'
+    todoNode.appendChild(markButtonNode);
+
+    markButtonNode.addEventListener('click', function(event) {
+      var newState = logic.markTodo(state, todo.id);
+      update(newState);
+    });
+
 
     // add classes for css
     return todoNode;
@@ -86,7 +100,7 @@ var logic = todoFunctions;
   var renderState = function(state) {
     var todoListNode = document.createElement('ul');
 
-    state.forEach(function(todo) {
+    state.forEach(function(todo){
       todoListNode.appendChild(createTodoNode(todo));
     });
 

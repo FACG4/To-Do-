@@ -21,12 +21,18 @@ t.end();
 // deleteTodo function
 test('deleteTodo function', function(t) {
 var todos = [{id:0, description:"todo1", done:false}];
-
 var actual = logic.deleteTodo(todos,0);
 console.log(actual);
 var expected=[];
 t.deepEqual(actual, expected);
-// t.deepEqual(todos, expected);
-
 t.end();
+});
+
+//sort sort Function
+test('sort function ', function(any) {
+var todos = [{id:0, description:"todo1", date:"2018-12-30",done:false},{id:1, description:"todo2", date:"2018-12-28",done:false}];
+var actual = logic.sortTodos(todos);
+var expected=[{id:1, description:"todo2", date:"2018-12-28",done:false},{id:0, description:"todo1", date:"2018-12-30",done:false}];
+any.deepEqual(actual, expected);
+any.end();
 });
