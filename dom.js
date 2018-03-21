@@ -25,8 +25,10 @@ var logic = todoFunctions;
 
   // if (typeof(Storage) !== "undefined") {
       // Code for localStorage/sessionStorage.
-      state = JSON.parse(localStorage.getItem("state"))
+      if(localStorage.getItem('state')) {
 
+      state = JSON.parse(localStorage.getItem("state"))
+      }
   //     //4.1.2
   // } else {
   //     // Sorry! No Web Storage support..
@@ -109,14 +111,15 @@ var logic = todoFunctions;
   var renderState = function(state) {
     var todoListNode = document.createElement('ul');
 
-    //localStorage
-    localStorage.setItem("state", JSON.stringify(state));
-    //localStorage
+
 
     state.forEach(function(todo){
       todoListNode.appendChild(createTodoNode(todo));
     });
 
+    //localStorage
+    localStorage.setItem("state", JSON.stringify(state));
+    //localStorage
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
