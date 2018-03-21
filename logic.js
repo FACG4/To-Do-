@@ -62,18 +62,19 @@ var todoFunctions = {
 
 
   sortTodos: function(todos) {
+    var sortedlist=this.cloneArrayOfObjects(todos);
+    sortedlist= sortedlist.sort(function(a,b){
+      // var c = new Date(a.date);
+      // var d = new Date(b.date);
+      // return c-d;
+
+return a.done ||   (new Date(a.date)-new Date(b.date)) ;
+    })
+    return sortedlist
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
-
-    var sortedlist = this.cloneArrayOfObjects(todos);
-
-    return sortedlist.sort(function(a,b){
-      return new Date(a.date) - new Date(b.date);
-    })
-
-
   },
 };
 
