@@ -16,7 +16,7 @@ var logic = todoFunctions;
   var addTodoForm = document.getElementById('add-todo');
 
 
-  var state;
+  var state=[];
     // { id: -3, description: 'first todo' },
     // { id: -2, description: 'second todo' },
     // { id: -1, description: 'third todo' },
@@ -28,10 +28,7 @@ var logic = todoFunctions;
       state = JSON.parse(localStorage.getItem("state"))
 
   //     //4.1.2
-  } else {
-  //     // Sorry! No Web Storage support..
-      state = []
-  }
+  } 
 
 
   // This function takes a todo, it returns the DOM node representing that todo
