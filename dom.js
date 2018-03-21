@@ -28,10 +28,12 @@ var state=[];
       // Code for localStorage/sessionStorage.
       state = [];
   //     //4.1.2
+
 } else{
   state = JSON.parse(localStorage.getItem("state"))
 
 }
+
 
 
   // This function takes a todo, it returns the DOM node representing that todo
@@ -73,7 +75,8 @@ var state=[];
       var newState = logic.deleteTodo(state, todo.id);
       update(newState);
     });
-    deleteButtonNode.textContent = 'delete'
+    deleteButtonNode.textContent = 'Delete'
+    deleteButtonNode.className = ('button1');
     // deleteButtonNode.style.color= 'red'
 
     todoNode.appendChild(deleteButtonNode);
@@ -81,7 +84,9 @@ var state=[];
     // add markTodo button
 
     var markButtonNode = document.createElement('button');
-    markButtonNode.textContent = 'mark'
+    markButtonNode.textContent = 'Mark'
+  markButtonNode.className = ('button2');
+
     // markButtonNode.style.color= 'red'
     todoNode.appendChild(markButtonNode);
 
