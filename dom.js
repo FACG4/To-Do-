@@ -24,12 +24,14 @@ var state=[];
    // this is our initial todoList
 
 
-  if (!localStorage.getItem("state")  === null) {
+  if (localStorage.getItem("state")  === null) {
       // Code for localStorage/sessionStorage.
-      state = JSON.parse(localStorage.getItem("state"))
+      state =[]
 
   //     //4.1.2
 
+}else{
+  state = JSON.parse(localStorage.getItem("state"))
 }
 
 
