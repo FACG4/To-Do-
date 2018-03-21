@@ -16,21 +16,21 @@ var logic = todoFunctions;
   var addTodoForm = document.getElementById('add-todo');
 
 
-  var state=[];
+  var state;
     // { id: -3, description: 'first todo' },
     // { id: -2, description: 'second todo' },
     // { id: -1, description: 'third todo' },
    // this is our initial todoList
 
 
-  if (typeof(localStorage) !== "undefined") {
+  if (localStorage.getItem("state")) {
       // Code for localStorage/sessionStorage.
       state = JSON.parse(localStorage.getItem("state"))
 
   //     //4.1.2
   } else {
   //     // Sorry! No Web Storage support..
-      // state = []
+      state = []
   }
 
 
