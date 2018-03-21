@@ -10,25 +10,30 @@ var logic = todoFunctions;
 
 (function() {
 
+var state=[];
 
   // This is the dom node where we will keep our todo
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
 
 
-  var state=[];
+
     // { id: -3, description: 'first todo' },
     // { id: -2, description: 'second todo' },
     // { id: -1, description: 'third todo' },
    // this is our initial todoList
 
 
-  if (localStorage.getItem("state")) {
+  if (localStorage.getItem("state")  === null) {
       // Code for localStorage/sessionStorage.
-      state = JSON.parse(localStorage.getItem("state"))
-
+      state = [];
   //     //4.1.2
-  }
+
+} else{
+  state = JSON.parse(localStorage.getItem("state"))
+
+}
+
 
 
   // This function takes a todo, it returns the DOM node representing that todo
@@ -107,7 +112,7 @@ var logic = todoFunctions;
 
       // hint: todoFunctions.addTodo
       var newState = logic.addTodo(state, description, date); // ?? change this!
-      console.log(newState)
+      // console.log(newState)
       update(newState);
     });
   }
@@ -122,14 +127,14 @@ var logic = todoFunctions;
   var renderState = function(state) {
     var todoListNode = document.createElement('ul');
 
-    //localStorage
-    localStorage.setItem("state", JSON.stringify(state));
-    //localStorage
 
     state.forEach(function(todo){
       todoListNode.appendChild(createTodoNode(todo));
     });
 
+    //localStorage
+    localStorage.setItem("state", JSON.stringify(state));
+    //localStorage
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
