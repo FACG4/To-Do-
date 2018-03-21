@@ -119,14 +119,14 @@ var logic = todoFunctions;
   var renderState = function(state) {
     var todoListNode = document.createElement('ul');
 
-    //localStorage
-    localStorage.setItem("state", JSON.stringify(state));
-    //localStorage
 
     state.forEach(function(todo){
       todoListNode.appendChild(createTodoNode(todo));
     });
 
+    //localStorage
+    localStorage.setItem("state", JSON.stringify(state));
+    //localStorage
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
