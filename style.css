@@ -1,13 +1,5 @@
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-
 body {
-  /* background-color: #4d004d; */
-  /* background-color:   #CCCCFF; */
   background-image: url('https://image.freepik.com/free-photo/top-view-accessories-business-office-desk-notebook-pen-paper-note-on-white-background-with-copy-space_1921-474.jpg');
-  /* background-image: url('http://www.pptgrounds.com/wp-content/uploads/2012/09/Simple-Floral-PPT-Backgrounds-1024x768.jpg');  */
-  /* background-image: url('https://images.freeimages.com/images/large-previews/910/office-1238359.jpg'); */
-  /* background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/74/64/3357bc57c0de1a9.jpg'); */
-  /* background-image: url('https://cdn.pixabay.com/photo/2018/03/13/11/26/time-3222267_960_720.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -80,8 +72,6 @@ input[type=submit]:hover {
   border-radius: 5px;
   background-color: #fff2e6;
   opacity: 0.9;
-  /* background-color:#F5F5DC; */
-  /* background-color: #ffe6ff; */
   padding: 20px;
   margin: 40px;
 }
@@ -98,8 +88,6 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
-
 .row:after {
   content: "";
   display: table;
@@ -109,7 +97,6 @@ input[type=submit]:hover {
 @media screen and (max-width: 500px) {
   .container {
     width: 130%;
-
   }
   .col-25, .col-75 {
     width: 100%;
@@ -131,7 +118,6 @@ input[type=submit]:hover {
     width: 100%;
     margin-top: 30px;
   }
-
   span {
     width: 100%;
   }
@@ -149,7 +135,6 @@ input[type=submit]:hover {
 }
 
 button {
-  /* value:'&#xf011'; */
   background-color: #CC0066;
   color: white;
   font-weight: bold;
@@ -158,8 +143,6 @@ button {
   border-radius: 4px;
   cursor: pointer;
   margin-left: 20px;
-  /* font-family: FontAwesome;
-    content: "\f095"; */
 }
 
 li {
