@@ -1,19 +1,17 @@
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-body{
+
+body {
   /* background-color: #4d004d; */
   /* background-color:   #CCCCFF; */
-
-background-image: url('https://image.freepik.com/free-photo/top-view-accessories-business-office-desk-notebook-pen-paper-note-on-white-background-with-copy-space_1921-474.jpg');
-/* background-image: url('http://www.pptgrounds.com/wp-content/uploads/2012/09/Simple-Floral-PPT-Backgrounds-1024x768.jpg');  */
-
-/* background-image: url('https://images.freeimages.com/images/large-previews/910/office-1238359.jpg'); */
+  background-image: url('https://image.freepik.com/free-photo/top-view-accessories-business-office-desk-notebook-pen-paper-note-on-white-background-with-copy-space_1921-474.jpg');
+  /* background-image: url('http://www.pptgrounds.com/wp-content/uploads/2012/09/Simple-Floral-PPT-Backgrounds-1024x768.jpg');  */
+  /* background-image: url('https://images.freeimages.com/images/large-previews/910/office-1238359.jpg'); */
   /* background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/74/64/3357bc57c0de1a9.jpg'); */
-/* background-image: url('https://cdn.pixabay.com/photo/2018/03/13/11/26/time-3222267_960_720.jpg'); */
-background-size: cover;
-background-repeat:no-repeat;
-
-
+  /* background-image: url('https://cdn.pixabay.com/photo/2018/03/13/11/26/time-3222267_960_720.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -35,7 +33,6 @@ input[type=date] {
   border-radius: 4px;
   resize: vertical;
   font-weight: bold;
-
 }
 
 label {
@@ -48,14 +45,12 @@ label {
 
 input[type=submit] {
   font-family: FontAwesome;
-  margin-top:  80px;
+  margin-top: 80px;
   font-size: 15px;
   font-weight: bold;
-
-/* background-color: #4D4DDC; */
-/* background-color: #994d00; */
-background-color:   #CC0066;
-
+  /* background-color: #4D4DDC; */
+  /* background-color: #994d00; */
+  background-color: #CC0066;
   /* background-color: #e600e6; */
   color: white;
   padding: 12px 20px;
@@ -65,7 +60,11 @@ background-color:   #CC0066;
   margin-top: 20px;
 }
 
-
+hr {
+  height: 2px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
 
 @media screen and (min-width: 600px) {
   input[type=submit] {
@@ -74,19 +73,14 @@ background-color:   #CC0066;
 }
 
 input[type=submit]:hover {
-  background-color:     #990033;
+  background-color: #990033;
 }
-
-
-
 
 .container {
   border-radius: 5px;
-  background-color:   #fff2e6;
+  background-color: #fff2e6;
   opacity: 0.9;
-
   /* background-color:#F5F5DC; */
-
   /* background-color: #ffe6ff; */
   padding: 20px;
   margin: 40px;
@@ -104,8 +98,6 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-
-
 /* Clear floats after the columns */
 
 .row:after {
@@ -114,13 +106,15 @@ input[type=submit]:hover {
   clear: both;
 }
 
-@media screen and (max-width: 600px) {
-  .col-25, .col-75
- {
+@media screen and (max-width: 500px) {
+  .container {
+    width: 130%;
+
+  }
+  .col-25, .col-75 {
     width: 100%;
     margin-top: 5px;
   }
-
   input[type=submit] {
     width: 100%;
     margin-top: 20px;
@@ -129,35 +123,32 @@ input[type=submit]:hover {
     width: 90%;
     margin-top: 15px;
   }
-
-  button {
+  .button2 {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
   }
-  span{
+  .button1 {
     width: 100%;
+    margin-top: 30px;
+  }
 
+  span {
+    width: 100%;
   }
 }
 
 .span1 {
-    width: 50%;
+  width: 50%;
   color: #660033
 }
-.span2{
+
+.span2 {
   width: 50%;
-font-weight:bold;
- color:#660033;
+  font-weight: bold;
+  color: #660033;
 }
 
-hr {
-  height: 2px;
-  border: 0;
-  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
-}
-
-button  {
-
+button {
   /* value:'&#xf011'; */
   background-color: #CC0066;
   color: white;
@@ -166,11 +157,10 @@ button  {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-left: 20px;
   /* font-family: FontAwesome;
     content: "\f095"; */
-
 }
-
 
 li {
   display: flex;
@@ -190,8 +180,8 @@ h1 {
 }
 
 h2 {
-  color:#660033;
-  padding: 0px 0px 12px 50px;
+  color: #660033;
+  padding: 0px 0px 12px 0px;
   margin-bottom: 0px;
   font-family: 'Rouge Script', cursive;
   font-size: 25px;
@@ -205,10 +195,9 @@ h2 {
   h1, h2 {
     font-size: 230%;
   }
- .task    h2{
-padding-left: 10px;
-}
-
+  .task h2 {
+    padding-left: 10px;
+  }
 }
 
 ::-webkit-datetime-edit-text {
@@ -236,6 +225,6 @@ padding-left: 10px;
   background: orange;
 }
 
-
 input[type=submit] {
-  margin-top:  35px;  }
+  margin-top: 35px;
+}
