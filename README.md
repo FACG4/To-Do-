@@ -12,7 +12,7 @@ We all have those days when there are a million things to do, and we don't know 
 Very simple web page that allows users to scheduling their everyday tasks. It also allow them do delete and mark whether the task is done or not.
 ##  **How**
 We have divided our project into four phases:
-1) We wrote the four functions makeTodo, deleteTodo, markTodo, sortTodo.
-2) We did the TTD for these four functions to make sure they work correctly.
-3)We edited the dom.js file.
-4) We edited the html and css files.
+1. We wrote the four functions makeTodo, deleteTodo, markTodo, sortTodo.
+2. We did the TTD for these four functions to make sure they work correctly.
+3. We edited the dom.js file.
+4. We edited the html and css files.
