@@ -47,11 +47,23 @@ var logic = todoFunctions;
 
     // add span holding description
     var span = document.createElement('span');
-    span.textContent = todo.description + '||' + todo.date;
+    var span2 = document.createElement('span');
+
+     span.className = ('span1');
+     span2.className = ('span2');
+
+    span.textContent = description.description ;
+    span2.textContent =  description.date;
+
     if(todo.done){
       span.style.textDecoration = 'line-through';
+      span2.style.textDecoration = 'line-through';
+
     }
     todoNode.appendChild(span);
+    todoNode.appendChild(span2);
+
+
 
 
     // this adds the delete button
@@ -61,7 +73,7 @@ var logic = todoFunctions;
       update(newState);
     });
     deleteButtonNode.textContent = 'delete'
-    deleteButtonNode.style.color= 'red'
+    // deleteButtonNode.style.color= 'red'
 
     todoNode.appendChild(deleteButtonNode);
 
@@ -93,7 +105,7 @@ var logic = todoFunctions;
       var date = document.getElementById('date').value;
 
       // hint: todoFunctions.addTodo
-      var newState = logic.addTodo(state, description, date);  // ?? change this!
+      var newState = logic.addTodo(state, description, date); // ?? change this!
       console.log(newState)
       update(newState);
     });
