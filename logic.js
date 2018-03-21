@@ -24,51 +24,24 @@ var todoFunctions = {
   },
 
   addTodo: function(todos, newTodo, newDate) {
-  var newToDos = todoFunctions.cloneArrayOfObjects(todos);
-  //check if empty
+  var newToDos = this.cloneArrayOfObjects(todos);
+  if(newTodo.trim() != ''){
   newToDos.push({
          id: this.generateId(),
          description: newTodo,
          date: newDate,
          done: false,
-  });
-  // console.log(newToDos);
-  return newToDos;
+       });
+  }
 
+  return this.sortTodos(newToDos);
   },
-
-
-
-
-
 
 
   deleteTodo: function(todos, idToDelete) {
-    var newToDos = todoFunctions.cloneArrayOfObjects(todos);
-
-    // for(let i=0; i<=newToDos.length ; i++)
-    // {
-    //   if(newToDos[i].id === idToDelete){
-    //     newToDos.splice(i,1);
-    //   }
-    //
-    // }
-
+    var newToDos = this.cloneArrayOfObjects(todos);
     return newToDos.filter(x=> x.id != idToDelete)
-
-    // return newToDos;
   },
-
-
-
-
-
-
-
-
-
-
-
 
 
   markTodo: function(todos, idToMark) {
@@ -76,7 +49,7 @@ var todoFunctions = {
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
     // hint: array.map
-    var newToDos = todoFunctions.cloneArrayOfObjects(todos);
+    var newToDos = this.cloneArrayOfObjects(todos);
 
    var arr = newToDos.map(function(item) {
      if (item.id === idToMark){
@@ -84,14 +57,20 @@ var todoFunctions = {
      }
      return item;
    });
-  return arr;
+  return this.sortTodos(arr);
   },
 
 
+  sortTodos: function(todos) {
+    var sortedlist=this.cloneArrayOfObjects(todos);
+    sortedlist= sortedlist.sort(function(a,b){
+      // var c = new Date(a.date);
+      // var d = new Date(b.date);
+      // return c-d;
 
-
-
-  sortTodos: function(todos, sortFunction) {
+      return a.done ||   (new Date(a.date)-new Date(b.date)) ;
+    })
+    return sortedlist
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
     // sortFunction will have same signature as the sort function in array.sort

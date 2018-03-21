@@ -10,6 +10,7 @@ var logic = todoFunctions;
 
 (function() {
 
+
   // This is the dom node where we will keep our todo
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
@@ -22,10 +23,18 @@ var logic = todoFunctions;
   ]; // this is our initial todoList
 
 
-  // var description = document.getElementById('description').value;
+  // if (typeof(Storage) !== "undefined") {
+      // Code for localStorage/sessionStorage.
+      state = JSON.parse(localStorage.getItem("state"))
+
+  //     //4.1.2
+  // } else {
+  //     // Sorry! No Web Storage support..
+  // }
+
 
   // This function takes a todo, it returns the DOM node representing that todo
-  var createTodoNode = function(description) {
+  var createTodoNode = function(todo) {
 
     var todoNode = document.createElement('li');
 
@@ -39,12 +48,18 @@ var logic = todoFunctions;
     // add span holding description
     var span = document.createElement('span');
     var span2 = document.createElement('span');
+
      span.className = ('span1');
      span2.className = ('span2');
 
     span.textContent = description.description ;
     span2.textContent =  description.date;
 
+    if(todo.done){
+      span.style.textDecoration = 'line-through';
+      span2.style.textDecoration = 'line-through';
+
+    }
     todoNode.appendChild(span);
     todoNode.appendChild(span2);
 
@@ -54,7 +69,7 @@ var logic = todoFunctions;
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
     deleteButtonNode.addEventListener('click', function(event) {
-      var newState = logic.deleteTodo(state, description.id);
+      var newState = logic.deleteTodo(state, todo.id);
       update(newState);
     });
     deleteButtonNode.textContent = 'delete'
@@ -63,6 +78,17 @@ var logic = todoFunctions;
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
+
+    var markButtonNode = document.createElement('button');
+    markButtonNode.textContent = 'mark'
+    markButtonNode.style.color= 'red'
+    todoNode.appendChild(markButtonNode);
+
+    markButtonNode.addEventListener('click', function(event) {
+      var newState = logic.markTodo(state, todo.id);
+      update(newState);
+    });
+
 
     // add classes for css
     return todoNode;
@@ -95,9 +121,14 @@ var logic = todoFunctions;
   var renderState = function(state) {
     var todoListNode = document.createElement('ul');
 
-    state.forEach(function(todo) {
+    //localStorage
+    localStorage.setItem("state", JSON.stringify(state));
+    //localStorage
+
+    state.forEach(function(todo){
       todoListNode.appendChild(createTodoNode(todo));
     });
+
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
