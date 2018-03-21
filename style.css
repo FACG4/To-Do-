@@ -1,0 +1,241 @@
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+body{
+  /* background-color: #4d004d; */
+  /* background-color:   #CCCCFF; */
+
+background-image: url('https://image.freepik.com/free-photo/top-view-accessories-business-office-desk-notebook-pen-paper-note-on-white-background-with-copy-space_1921-474.jpg');
+/* background-image: url('http://www.pptgrounds.com/wp-content/uploads/2012/09/Simple-Floral-PPT-Backgrounds-1024x768.jpg');  */
+
+/* background-image: url('https://images.freeimages.com/images/large-previews/910/office-1238359.jpg'); */
+  /* background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/74/64/3357bc57c0de1a9.jpg'); */
+/* background-image: url('https://cdn.pixabay.com/photo/2018/03/13/11/26/time-3222267_960_720.jpg'); */
+background-size: cover;
+background-repeat:no-repeat;
+
+
+}
+* {
+  box-sizing: border-box;
+}
+
+textarea[type=text] {
+  width: 90%;
+  height: 80px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=date] {
+  margin-top: 20px;
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-weight: bold;
+
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 12px 12px 50px;
+  display: inline-block;
+  color: #660033;
+}
+
+input[type=submit] {
+  font-family: FontAwesome;
+  margin-top:  80px;
+  font-size: 15px;
+  font-weight: bold;
+
+/* background-color: #4D4DDC; */
+/* background-color: #994d00; */
+background-color:   #CC0066;
+
+  /* background-color: #e600e6; */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+
+
+@media screen and (min-width: 600px) {
+  input[type=submit] {
+    margin-left: 290px;
+  }
+}
+
+input[type=submit]:hover {
+  background-color:     #990033;
+}
+
+
+
+
+.container {
+  border-radius: 5px;
+  background-color:   #fff2e6;
+  opacity: 0.9;
+
+  /* background-color:#F5F5DC; */
+
+  /* background-color: #ffe6ff; */
+  padding: 20px;
+  margin: 40px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+
+
+/* Clear floats after the columns */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75
+ {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    margin-top: 20px;
+  }
+  input[type=date] {
+    width: 90%;
+    margin-top: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 20px;
+  }
+  span{
+    width: 100%;
+
+  }
+}
+
+.span1 {
+    width: 50%;
+  color: #660033
+}
+.span2{
+  width: 50%;
+font-weight:bold;
+ color:#660033;
+}
+
+hr {
+  height: 2px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+button  {
+
+  /* value:'&#xf011'; */
+  background-color: #CC0066;
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  /* font-family: FontAwesome;
+    content: "\f095"; */
+
+}
+
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  margin-top: 0px;
+}
+
+h1 {
+  color: #660033;
+  font-family: 'Rouge Script', cursive;
+  font-size: 40px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: 1px 1px 2px #082b34;
+}
+
+h2 {
+  color:#660033;
+  padding: 0px 0px 12px 50px;
+  margin-bottom: 0px;
+  font-family: 'Rouge Script', cursive;
+  font-size: 25px;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 50px;
+  text-shadow: 1px 1px 2px #082b34;
+}
+
+@media screen and (max-width: 600px) {
+  h1, h2 {
+    font-size: 230%;
+  }
+ .task    h2{
+padding-left: 10px;
+}
+
+}
+
+::-webkit-datetime-edit-text {
+  color: red;
+  padding: 0 0.3em;
+}
+
+::-webkit-datetime-edit-month-field {
+  color: blue;
+}
+
+::-webkit-datetime-edit-day-field {
+  color: green;
+}
+
+::-webkit-datetime-edit-year-field {
+  color: purple;
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  background: orange;
+}
+
+
+input[type=submit] {
+  margin-top:  35px;  }
