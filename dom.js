@@ -16,21 +16,22 @@ var logic = todoFunctions;
   var addTodoForm = document.getElementById('add-todo');
 
 
-  var state = [
+  var state=[];
     // { id: -3, description: 'first todo' },
     // { id: -2, description: 'second todo' },
     // { id: -1, description: 'third todo' },
-  ]; // this is our initial todoList
+   // this is our initial todoList
 
 
-  // if (typeof(Storage) !== "undefined") {
+  if (typeof(localStorage) !== "undefined") {
       // Code for localStorage/sessionStorage.
       state = JSON.parse(localStorage.getItem("state"))
 
   //     //4.1.2
-  // } else {
+  } else {
   //     // Sorry! No Web Storage support..
-  // }
+      // state = []
+  }
 
 
   // This function takes a todo, it returns the DOM node representing that todo
@@ -52,8 +53,8 @@ var logic = todoFunctions;
      span.className = ('span1');
      span2.className = ('span2');
 
-    span.textContent = description.description ;
-    span2.textContent =  description.date;
+    span.textContent = todo.description ;
+    span2.textContent =  todo.date;
 
     if(todo.done){
       span.style.textDecoration = 'line-through';
@@ -81,7 +82,7 @@ var logic = todoFunctions;
 
     var markButtonNode = document.createElement('button');
     markButtonNode.textContent = 'mark'
-    markButtonNode.style.color= 'red'
+    // markButtonNode.style.color= 'red'
     todoNode.appendChild(markButtonNode);
 
     markButtonNode.addEventListener('click', function(event) {
