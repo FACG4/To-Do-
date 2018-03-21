@@ -23,7 +23,7 @@ var logic = todoFunctions;
    // this is our initial todoList
 
 
-  if (localStorage.getItem("state")) {
+  if (!localStorage.getItem("state")) {
       // Code for localStorage/sessionStorage.
       state = JSON.parse(localStorage.getItem("state"))
 
