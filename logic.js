@@ -68,8 +68,12 @@ var todoFunctions = {
       // var d = new Date(b.date);
       // return c-d;
 
-      return a.done ||   (new Date(a.date)-new Date(b.date)) ;
+
+      return (new Date(a.date)-new Date(b.date)) ;
     })
+    sortedlist=sortedlist.sort(function(a,b){
+      return a.done
+  })
     return sortedlist
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
