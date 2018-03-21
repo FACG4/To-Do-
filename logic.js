@@ -57,7 +57,7 @@ var todoFunctions = {
      }
      return item;
    });
-  return arr;
+  return this.sortTodos(arr);
   },
 
 
@@ -68,7 +68,7 @@ var todoFunctions = {
       // var d = new Date(b.date);
       // return c-d;
 
-return a.done ||   (new Date(a.date)-new Date(b.date)) ;
+      return a.done ||   (new Date(a.date)-new Date(b.date)) ;
     })
     return sortedlist
     // stretch goal! Do this last
