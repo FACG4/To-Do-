@@ -1,5 +1,6 @@
 var logic = todoFunctions;
 
+
 (function() {
 
   var state = [];
@@ -10,8 +11,10 @@ var logic = todoFunctions;
 
 
 
+
   if (localStorage.getItem("state")) {
     state = JSON.parse(localStorage.getItem("state"))
+
 
   }
 
@@ -19,6 +22,7 @@ var logic = todoFunctions;
   var createTodoNode = function(todo) {
 
     var todoNode = document.createElement('li');
+
 
     var descriptionSpan = document.createElement('input');
     var dateSpan = document.createElement('span');
@@ -47,6 +51,7 @@ var logic = todoFunctions;
       var newState = logic.deleteTodo(state, todo.id);
       update(newState);
     });
+
     deleteButtonNode.textContent = ''
     deleteButtonNode.className = 'button1';
 
@@ -108,8 +113,6 @@ var logic = todoFunctions;
 
 
 
-
-
     todoNode.appendChild(markButtonNode);
 
     markButtonNode.addEventListener('click', function(event) {
@@ -118,19 +121,20 @@ var logic = todoFunctions;
     });
 
 
-    // add classes for css
     return todoNode;
   };
 
   if (addTodoForm) {
     addTodoForm.addEventListener('submit', function(event) {
-
       event.preventDefault();
+
       var description = document.getElementById('description').value;
       var date = document.getElementById('date').value;
 
       var newState = logic.addTodo(state, description, date);
+
       document.getElementById('description').value = '';
+
       update(newState);
     });
   }
@@ -148,7 +152,9 @@ var logic = todoFunctions;
       todoListNode.appendChild(createTodoNode(todo));
     });
 
+
     localStorage.setItem("state", JSON.stringify(state));
+
 
     container.replaceChild(todoListNode, container.firstChild);
   };

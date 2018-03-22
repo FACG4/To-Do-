@@ -1,7 +1,7 @@
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-
 body {
+
   background-image: url('http://getwallpapers.com/wallpaper/full/6/2/3/389089.jpg');
+
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -85,7 +85,9 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
+
 .spanDesc {
+
   width: 50%;
   color: #660033;
   background-color: inherit;
