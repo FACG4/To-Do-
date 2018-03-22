@@ -1,7 +1,6 @@
 var logic = todoFunctions;
 
 
-
 (function() {
 
   var state = [];
@@ -13,14 +12,11 @@ var logic = todoFunctions;
 
 
 
-  if (localStorage.getItem("state") === null) {
-    state = []
-
-
-  } else {
+  if (localStorage.getItem("state")) {
     state = JSON.parse(localStorage.getItem("state"))
-  }
 
+
+  }
 
 
   var createTodoNode = function(todo) {
@@ -28,22 +24,24 @@ var logic = todoFunctions;
     var todoNode = document.createElement('li');
 
 
-    var span = document.createElement('span');
-    var span2 = document.createElement('span');
+    var descriptionSpan = document.createElement('input');
+    var dateSpan = document.createElement('span');
 
-    span.className = ('span1');
-    span2.className = ('span2');
+    descriptionSpan.className = ('spanDesc');
+    dateSpan.className = ('spanDat');
 
-    span.textContent = todo.description;
-    span2.textContent = todo.date;
+    descriptionSpan.value = todo.description
+    descriptionSpan.disabled = 'disabled'
+    descriptionSpan.style.border = 'none'
+    dateSpan.textContent = todo.date;
 
     if (todo.done) {
-      span.style.textDecoration = 'line-through';
-      span2.style.textDecoration = 'line-through';
+      descriptionSpan.style.textDecoration = 'line-through';
+      dateSpan.style.textDecoration = 'line-through';
 
     }
-    todoNode.appendChild(span);
-    todoNode.appendChild(span2);
+    todoNode.appendChild(descriptionSpan);
+    todoNode.appendChild(dateSpan);
 
 
 
@@ -53,15 +51,67 @@ var logic = todoFunctions;
       var newState = logic.deleteTodo(state, todo.id);
       update(newState);
     });
-    deleteButtonNode.textContent = 'Delete'
-    deleteButtonNode.className = ('button1');
+
+    deleteButtonNode.textContent = ''
+    deleteButtonNode.className = 'button1';
 
     todoNode.appendChild(deleteButtonNode);
 
 
+    var editButtonNode = document.createElement('button');
+
+    editButtonNode.addEventListener('click', function(event) {
+      event.preventDefault()
+
+      if (descriptionSpan.disabled == true) {
+        console.log(1);
+        descriptionSpan.disabled = !descriptionSpan.disabled
+
+
+      } else {
+        descriptionSpan.disabled = !descriptionSpan.disabled
+        var descript = descriptionSpan.value;
+        var dat = dateSpan.textContent;
+        var newState = logic.deleteTodo(state, todo.id);
+        update(newState)
+
+        newState = logic.addTodo(state, descript, dat)
+        newState = update(newState)
+        sortTodo(newState)
+
+
+      }
+
+
+
+
+
+
+    });
+    editButtonNode.textContent = ''
+    editButtonNode.className = 'button1';
+    todoNode.appendChild(editButtonNode);
+    var nodeedit = document.createElement("i");
+    nodeedit.className = ('fas fa-pencil-alt');
+    editButtonNode.appendChild(nodeedit);
+
+
+
+
+
+
+
     var markButtonNode = document.createElement('button');
-    markButtonNode.textContent = 'Mark'
-    markButtonNode.className = ('button2');
+    markButtonNode.textContent = ''
+    markButtonNode.className = 'button2';
+    var nodee = document.createElement("i");
+    nodee.className = ('fas fa-trash-alt');
+    deleteButtonNode.appendChild(nodee);
+    var nodeee = document.createElement("i");
+    nodeee.className = ('fas fa-check');
+    markButtonNode.appendChild(nodeee);
+
+
 
     todoNode.appendChild(markButtonNode);
 
@@ -76,12 +126,15 @@ var logic = todoFunctions;
 
   if (addTodoForm) {
     addTodoForm.addEventListener('submit', function(event) {
-  
-        event.preventDefault();
+      event.preventDefault();
+
       var description = document.getElementById('description').value;
       var date = document.getElementById('date').value;
 
       var newState = logic.addTodo(state, description, date);
+
+      document.getElementById('description').value = '';
+
       update(newState);
     });
   }

@@ -19,13 +19,19 @@ var todoFunctions = {
 
   addTodo: function(todos, newTodo, newDate) {
     var newToDos = this.cloneArrayOfObjects(todos);
-    if (newTodo.trim() != '') {
+
+    if (newTodo.trim() !== '') {
+
       newToDos.push({
         id: this.generateId(),
         description: newTodo,
         date: newDate,
         done: false,
       });
+
+    } else {
+      alert('please enter some text')
+
     }
 
     return this.sortTodos(newToDos);
@@ -35,6 +41,21 @@ var todoFunctions = {
   deleteTodo: function(todos, idToDelete) {
     var newToDos = this.cloneArrayOfObjects(todos);
     return newToDos.filter(x => x.id != idToDelete)
+
+  },
+
+  editTodo: function(todos, idToMark, desc) {
+
+    var newToDos = this.cloneArrayOfObjects(todos);
+
+    var arr = newToDos.map(function(item) {
+      if (item.id === idToMark) {
+        item.description = desc;
+      }
+      return item;
+    });
+    return this.sortTodos(arr);
+
   },
 
 
@@ -57,7 +78,6 @@ var todoFunctions = {
     sortedlist = sortedlist.sort(function(a, b) {
 
 
-
       return (new Date(a.date) - new Date(b.date));
     })
     sortedlist = sortedlist.sort(function(a, b) {
@@ -66,8 +86,10 @@ var todoFunctions = {
     return sortedlist
 
   },
-};
 
+
+
+};
 
 if (typeof module !== 'undefined') {
   module.exports = todoFunctions;
